@@ -6,7 +6,7 @@ import base64;
 import mcp_client;
 
 glob rag_engine:RagEngine = RagEngine();
-glob llm = Model(model_name="gemini-1.5-flash", verbose=False);
+glob llm = Model(model_name="gemini/gemini-2.0-flash", verbose=False);
 
 glob MCP_SERVER_URL: str = os.getenv('MCP_SERVER_URL', 'http://localhost:8899/mcp');
 
