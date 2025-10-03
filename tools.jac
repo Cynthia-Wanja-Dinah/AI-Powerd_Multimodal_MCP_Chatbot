@@ -3,7 +3,7 @@ import requests;
 import from langchain_community.document_loaders {PyPDFDirectoryLoader, PyPDFLoader}
 import from langchain_text_splitters {RecursiveCharacterTextSplitter}
 import from langchain.schema.document {Document}
-import from langchain_community.embeddings {HuggingFaceEmbeddings}
+import from langchain_cohere {CohereEmbeddings}
 import from langchain_chroma {Chroma}
 
 glob SERPER_API_KEY: str = os.getenv('SERPER_API_KEY', '');
@@ -52,8 +52,7 @@ obj RagEngine {
     }
 
     def get_embedding_function {
-        model_name = "intfloat/multilingual-e5-small";
-        embeddings = HuggingFaceEmbeddings(model_name=model_name);
+        embeddings = CohereEmbeddings(model="embed-multilingual-v3.0", cohere_api_key="WgjghYE1DcjbqGkqWw6bU5u0p5SVBuLKLFOV4zK3");
         return embeddings;
     }
 
